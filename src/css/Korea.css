@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+.Korea_wrap {
+  height: 100vh;
+  box-shadow: inset 0 0 10px #000;
+  position: relative;
+}
+
+.show_data {
+  position: absolute;
+  width: 260px;
+  height: 140px;
+  box-shadow: 0 0 10px #000;
+  border-radius: 10px;
+  top: 10%;
+  right: 5%;
+}
+
+.chart {
+  max-width: 650px;
+  margin: 35px auto !important;
+}
