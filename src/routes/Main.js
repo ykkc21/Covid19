@@ -9,8 +9,8 @@ function Main() {
         <div className="container">
           <div className="MenuBox">
             <h1>COVID-19</h1>
-            <Box text="Korea" />
-            <Box text="World" />
+            <Box text="Korea"/>
+            <Box text="World"/>
             <Box />
           </div>
         </div>
