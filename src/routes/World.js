@@ -1,6 +1,7 @@
 import $ from 'jquery';
 function World() {
 
+    const world_code = ['RU','CN','US',"IN","DE","FR","JP","GB","IL"];
     function WorldDate() {
         $.ajax({
             type : "GET",
@@ -9,8 +10,8 @@ function World() {
             error: function (err) { 
                 console.error(err);
             },
-            success:function (xml) {
-                console.log(xml);
+            success:function (res) {
+                console.log(res);
             },
         })
 
