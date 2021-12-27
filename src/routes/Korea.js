@@ -1,6 +1,5 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import $ from "jquery";
-import ApexCharts from "apexcharts";
 import "bootstrap/dist/css/bootstrap.css";
 import "../css/Korea.css";
 import Chart from "../components/Chart/Chart";
@@ -35,7 +34,7 @@ function Korea() {
             const decideCnt = $(item).find("decideCnt").text(); // 확진자 수
             const stateDt = $(item).find("stateDt").text();
             const createDt = $(item).find("createDt").text();
-            if (stateDt == EndDay) {
+            if (stateDt === EndDay) {
               // 오늘 데이터 저장
               const obj = {
                 deathCnt,
@@ -78,7 +77,7 @@ function Korea() {
 
   return (
     <div className="Korea_wrap">
-      {loading ? <h1>loading...</h1> : <Chart/> }
+      {loading ? <h1>loading...</h1> : <Chart />}
     </div>
   );
 }
