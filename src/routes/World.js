@@ -31,8 +31,6 @@ function World() {
                     }
                 },
             });
-
-            // console.log(DataList);
         },
         ClickArrow(e) {
             const element = $(e.target);
@@ -44,20 +42,23 @@ function World() {
                 $('.right').animate({ opacity: "0" });
                 $('.left').animate({ opacity: "1" });
                 setTimeout(() => {
-                    this.ListDraw();
-                },1500)
+                    this.ListDraw(num);
+                },1500);
             }
 
             if(num == 2 ){
                 $('.earth_img_box').css({ transform: "rotate(0deg)" });
                 $('.right').animate({ opacity: "1" });
                 $('.left').animate({ opacity: "0" });
+                setTimeout(() => {
+                    this.ListDraw(num);
+                },1500);
             }
 
 
         },
-        ListDraw() {
-            alert(123);
+        ListDraw(num) {
+            alert(num);
         },  
     };
 
