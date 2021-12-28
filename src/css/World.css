@@ -1,3 +1,5 @@
+
+
 .World_wrap {
     height: 100vh;
     background-color: rgb(0, 0, 0);
@@ -11,20 +13,37 @@
     background-size: 100% 100%;
     position: absolute;
     top: 50%;
+    transition: 1.5s;
 }
 
-label {
+.arrow {
     display: block;
     width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border: 1px solid #000;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 70px;
+    color: #fff;
+    background-color: red;
 }
 
-
-#btn1:checked ~  .World_wrap > .earth_img_box {
-    display: none;
+.left {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0%,-50%);
+    z-index: 10;
+    opacity: 0;
 }
+
+.right {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform:  translate(0%,-50%);
+    z-index: 10;
+}
+
 
 @media screen and (max-width:1920px) {
     .earth_img_box {
