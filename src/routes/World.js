@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronLeft,faChevronRight } from "@fortawesome/free-solid-svg-icons"
 function World() {
 
-    const world_code = ['RU','CN','US',"IN","DE","FR","JP","GB","IL"];
+    const world_code = ['RU','CN','US',"DE","FR","JP","GB","IL"];
     const DataList = [];
     const world = {
         init() {
@@ -58,7 +58,12 @@ function World() {
 
         },
         ListDraw(num) {
-            alert(num);
+            if(num == 1) {
+                alert("첫번째")
+            }else if(num == 2) {
+                alert("두번째");
+            }
+
         },  
     };
 
