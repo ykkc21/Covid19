@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import "../css/World.css";
 function World() {
 
     const world_code = ['RU','CN','US',"IN","DE","FR","JP","GB","IL"];
@@ -20,7 +21,13 @@ function World() {
     WorldDate();
 
 
-    return <h1>세계 코로나 현황</h1>
+    return <div className="World_wrap">
+        <input type="radio" className="input" name="rotate" id="btn1" />
+        <input type="radio" className="input" name="rotate" id="btn2" />
+        <label for="btn1">오른쪽</label>
+        <label for="btn2">왼쪽</label>
+        <div className="earth_img_box"></div>
+    </div>
 }
 
 export default World;
