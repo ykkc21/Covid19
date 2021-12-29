@@ -1,15 +1,16 @@
 import $ from 'jquery';
 import "../css/World.css";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronLeft,faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import Country from "../components/country/Country";
+import { useState } from 'react';
 function World() {
 
     const world_code = ['RU','CN','US',"DE","FR","JP","GB","IL"];
-    const DataList = [];
+    let [first, SetFirst] = useState([]);
+    let [last, SetLast] = useState([]);
+    const Datalist = [];
     const world = {
         init() {
             this.WorldDate();
-            this.ClickArrow.bind(this);
         },
         WorldDate() {
             $.ajax({
@@ -25,9 +26,15 @@ function World() {
                         const { CountryCode } = list[i];
                         world_code.forEach(code => {
                             if(code == CountryCode) {
-                                DataList.push(list[i]);
+                                Datalist.push(list[i]);
                             }
-                        })
+                        });
+                    }
+                    for (let i = 0; i <= 3; i++) {
+                        SetFirst(Datalist[i]);
+                    }
+                    for (let i = 4; i <= Datalist.length; i++) {
+                        SetLast(Datalist[i]);
                     }
                 },
             });
@@ -54,26 +61,26 @@ function World() {
                     this.ListDraw(num);
                 },1500);
             }
-
-
         },
         ListDraw(num) {
             if(num == 1) {
-                alert("첫번째")
+                
             }else if(num == 2) {
-                alert("두번째");
+                
             }
-
         },  
     };
-
     window.onload = () => {
         world.init();
     }
 
+
     return <div className="World_wrap">
         <div className="right arrow" dat_num='1' onClick={(e) => world.ClickArrow(e)} ></div>
         <div className="left arrow"dat_num='2' onClick={(e) => world.ClickArrow(e)} ></div>
+        <div className="Last_Box main">
+            
+        </div>
         <div className="earth_img_box"></div>
     </div>
 }

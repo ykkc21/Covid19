@@ -16,6 +16,17 @@
     transition: 1.5s;
 }
 
+.main { 
+    width: 900px;
+    height: 300px;
+    background-color: skyblue;
+    z-index: 10;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+
 .arrow {
     display: block;
     width: 40px;
