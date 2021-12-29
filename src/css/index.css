@@ -1,14 +1,10 @@
 * {
   margin: 0 !important;
-  padding: 0;
+  padding: 0 !important;
   list-style: none !important;
   text-decoration: none !important;
   box-sizing: border-box !important;
 }
-
-/* body {
-  background-color: rgb(40, 111, 170) !important;
-} */
 
 .container {
   margin: 0 auto !important;
