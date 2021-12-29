@@ -1,18 +1,40 @@
 import $ from "jquery";
 import "../css/World.css";
 import Country from "../components/country/Country";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function World() {
-  const world_code = ["RU", "CN", "US", "DE", "FR", "JP", "GB", "IL"];
+  const worldCode = [
+    "RU",
+    "CN",
+    "US",
+    "DE",
+    "FR",
+    "JP",
+    "GB",
+    "IL",
+    "IN",
+    "ES",
+    "AR",
+    "PH",
+    "CA",
+    "SE",
+    "AU",
+    "BR",
+    "HK",
+    "IT",
+  ];
+  const len = document.getElementsByClassName("global_Date").length;
   const [data, SetData] = useState([]);
   const [loading, Setloading] = useState(true);
-  const items = document.getElementsByClassName("global_Date");
-  const box = document.getElementsByClassName("earth_img_box");
+
+  useEffect(() => {
+    world.init();
+  }, []);
 
   const world = {
     init() {
       this.WorldDate();
-      this.a();
+      // this.a();
     },
     WorldDate() {
       $.ajax({
@@ -26,8 +48,8 @@ function World() {
           const list = res.Countries; //
           for (let i = 0; i < list.length; i++) {
             const { CountryCode } = list[i];
-            world_code.forEach((code) => {
-              if (code == CountryCode) {
+            worldCode.forEach((code) => {
+              if (code === CountryCode) {
                 SetData((data) => [list[i], ...data]);
                 Setloading(false);
               }
@@ -36,15 +58,17 @@ function World() {
         },
       });
     },
-    a() {
-      const as = [items].map((item) => {
-        return item + "Asd";
-      });
-      console.log(as);
-    },
-  };
-  window.onload = () => {
-    world.init();
+    // a() {
+    //   const items = document.getElementsByClassName("global_Date");
+    //   [items].forEach((item) => {
+    //     for (let i = 0; i < len; i++) {
+    //       const element = item[i];
+    //       $(element)
+    //         .delay(i * 300)
+    //         .animate({ opacity: "1" });
+    //     }
+    //   });
+    // },
   };
 
   return (
@@ -53,7 +77,6 @@ function World() {
         <h1 style={{ color: "#fff" }}>loading...</h1>
       ) : (
         <>
-          {" "}
           <div className="right arrow" dat_num="1"></div>
           <div className="left arrow" dat_num="2"></div>
           <div className="Last_Box main">

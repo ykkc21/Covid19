@@ -1,7 +1,5 @@
 import ApexCharts from "react-apexcharts";
 import $ from "jquery";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
 function Chart() {
   const data = JSON.parse(window.localStorage.getItem("total"));
   const deathCntData = [];
@@ -14,9 +12,10 @@ function Chart() {
     createDtData.push(element.createDt);
   });
 
-  let AddDeathCnt = deathCntData[0] - deathCntData[1] ,
-    AddDecideCnt = decideCntData[0]  - decideCntData[1] ;
-  let num1 = 0, num2 = AddDecideCnt - 200;
+  let AddDeathCnt = deathCntData[0] - deathCntData[1],
+    AddDecideCnt = decideCntData[0] - decideCntData[1];
+  let num1 = 0,
+    num2 = AddDecideCnt - 200;
 
   function animation() {
     const element = document.getElementsByClassName("Chart_Box");
@@ -25,25 +24,25 @@ function Chart() {
       const elements = element[i];
       $(elements)
         .delay(i * 300)
-        .animate({ opacity: 1, top: "0%", boxShadow:" 0 0 10px #000" });
+        .animate({ opacity: 1, top: "0%", boxShadow: " 0 0 10px #000" });
     }
     $(show_data).animate({ opacity: 1, top: "20%", right: "5%" }, 1200);
     setTimeout(() => {
-     const first = setInterval(() => {
-        num1 ++;
+      const first = setInterval(() => {
+        num1++;
         $(".firstcount").text(`up ${num1}`);
-        if(num1 == AddDeathCnt) {
+        if (num1 == AddDeathCnt) {
           clearInterval(first);
         }
-     },30);
-     const last = setInterval(() => {
-      num2 ++;
-      $(".lastcount").text(`up ${num2}`);
-      if(num2 == AddDecideCnt) {
-        clearInterval(last);
-      }
-   })
-    },2000)
+      }, 30);
+      const last = setInterval(() => {
+        num2++;
+        $(".lastcount").text(`up ${num2}`);
+        if (num2 == AddDecideCnt) {
+          clearInterval(last);
+        }
+      });
+    }, 2000);
   }
 
   $(document).ready(() => {
@@ -169,14 +168,20 @@ function Chart() {
       <div className="show_data">
         <div className="decideCntBox s_box">
           <p>사망자</p>
-          <h4 className="FirstCount">{deathCntData[3]!= null ?deathCntData[3].toLocaleString() : deathCntData[2].toLocaleString() }명
-            <span className="firstcount"></span>
+          <h4 className="FirstCount">
+            {deathCntData[3] != null
+              ? deathCntData[3].toLocaleString()
+              : deathCntData[2].toLocaleString()}
+            명<span className="firstcount"></span>
           </h4>
         </div>
         <div className="deathCntBox s_box">
-        <p>확진자</p>
-          <h4>{decideCntData[3]!= null ?decideCntData[3].toLocaleString() : decideCntData[2].toLocaleString()}명
-            <span className="lastcount"></span>
+          <p>확진자</p>
+          <h4>
+            {decideCntData[3] != null
+              ? decideCntData[3].toLocaleString()
+              : decideCntData[2].toLocaleString()}
+            명<span className="lastcount"></span>
           </h4>
         </div>
       </div>

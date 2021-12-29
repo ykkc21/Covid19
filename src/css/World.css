@@ -32,15 +32,12 @@
 }
 
 .global_Date {
-  /* width: 250px;
-  height: 150px; */
-  /* display: none; */
   float: left;
   padding: 20px !important;
-  margin: 20px 12.5px !important;
+  margin: 20px !important;
   color: #fff;
-
   background-color: rgba(41, 35, 35, 0.6);
+  opacity: 0;
 }
 
 @media screen and (max-width: 1920px) {
