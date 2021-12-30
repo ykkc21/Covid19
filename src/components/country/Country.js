@@ -26,6 +26,8 @@ function Country({ ID, Country, TotalConfirmed, TotalDeaths }) {
   return (
     <li id="itmes" className="global_Date">
       {Country}
+      <p>확진자:{TotalConfirmed.toLocaleString()}</p>
+      <p>사망자:{TotalDeaths.toLocaleString()}</p>
     </li>
   );
 }

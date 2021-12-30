@@ -16,12 +16,15 @@
 
 .main {
   width: 1100px;
-  height: 360px;
+  height: auto;
   z-index: 10;
   position: absolute;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -20%);
+}
+.main > .container {
+  height: auto;
 }
 
 .main > .container > ul {
@@ -73,31 +76,3 @@
     color: #fff;
   } */
 }
-
-/* .arrow {
-    display: block;
-    width: 40px;
-    height: 80px;
-    text-align: center;
-    line-height: 80px;
-    font-size: 70px;
-    color: #fff;
-    background-color: red;
-}
-
-.left {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translate(0%,-50%);
-    z-index: 10;
-    opacity: 0;
-}
-
-.right {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform:  translate(0%,-50%);
-    z-index: 10;
-} */

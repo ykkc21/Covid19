@@ -58,17 +58,6 @@ function World() {
         },
       });
     },
-    // a() {
-    //   const items = document.getElementsByClassName("global_Date");
-    //   [items].forEach((item) => {
-    //     for (let i = 0; i < len; i++) {
-    //       const element = item[i];
-    //       $(element)
-    //         .delay(i * 300)
-    //         .animate({ opacity: "1" });
-    //     }
-    //   });
-    // },
   };
 
   return (
@@ -77,8 +66,6 @@ function World() {
         <h1 style={{ color: "#fff" }}>loading...</h1>
       ) : (
         <>
-          <div className="right arrow" dat_num="1"></div>
-          <div className="left arrow" dat_num="2"></div>
           <div className="Last_Box main">
             <div className="container">
               <ul>
