@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import MapElement from "../components/Map/Map";
+import "../css/Vaccination.css";
 function Vaccination() {
   const { kakao } = window;
   const Key =
@@ -11,18 +11,7 @@ function Vaccination() {
       let latitude = pos.coords.latitude;
       let longitude = pos.coords.longitude;
 
-      let max_latitude = (latitude += 0.01 * 1);
-      let min_latitude = (latitude -= 0.01 * 1);
-      let max_longitude = (longitude += 0.015 * 1);
-      let min_longitude = (longitude -= 0.015 * 1);
-      Maps.Draw(
-        latitude,
-        longitude,
-        max_latitude,
-        min_latitude,
-        max_longitude,
-        min_longitude
-      );
+      Maps.Draw(latitude, longitude);
     });
     Maps.init();
   }, []);
@@ -41,7 +30,7 @@ function Vaccination() {
       SetData(data.data);
       this.item = data.data;
     },
-    Draw(lat, long, Maxlat, Minlat, Maxlong, Minlong) {
+    Draw(lat, long) {
       const container = document.getElementById("map");
 
       const options = {
@@ -51,32 +40,35 @@ function Vaccination() {
 
       var map = new kakao.maps.Map(container, options);
 
-      var markerPosition = new kakao.maps.LatLng(lat, long);
-
-      var marker = new kakao.maps.Marker({
-        position: markerPosition,
-      });
-
-      marker.setMap(map); // 마커 지도위에 그리기
-
       this.item.forEach((item) => {
-        const lat = item.lat;
-        const long = item.lng;
+        const { address, centerName, facilityName, lat, lng, sido, sigungu } =
+          item;
+        var markerPosition = new kakao.maps.LatLng(lat, lng);
 
-        if (long < Maxlong && long > Minlong) {
-          console.log(Maxlong, long);
-        }
-        // console.log(long, "Min: " + Minlong, "MAX: " + Maxlong);
-        // if ((long > Minlong) & (long < Maxlong)) {
-        //   console.log(item);
-        // }
+        var marker = new kakao.maps.Marker({
+          position: markerPosition,
+        });
+
+        marker.setMap(map); // 마커 지도위에 그리기
+
+        //// 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
+        var iwContent = `<div style="padding:5px;">${facilityName}</div>`;
+
+        //인포 생성
+        var infowindow = new kakao.maps.InfoWindow({
+          content: iwContent,
+        });
       });
     },
+    zoomIn() {},
+    zoomOut() {},
   };
 
   return (
     <div className="Map_wrap" style={{ width: "100%", height: "100vh" }}>
       <div id="map" style={{ width: "100%", height: "100vh" }}></div>
+      {/* <button onClick={this.zoomIn()}>지도레벨 - 1</button>
+      <button onClick={this.zoomIn()}>지도레벨 + 1</button> */}
     </div>
   );
 }
