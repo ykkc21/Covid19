@@ -2,21 +2,46 @@ import { useEffect, useState } from "react";
 // import MapElement from "../components/Map/Map";
 function Vaccination() {
   const { kakao } = window;
-  const [loading, SetLoading] = useState(true);
+  const Key =
+    "ni1KPPPSl7rn5wXOSl9YieknHyh6P%2Fk8wXj4aOPMa4BxknTBR71SKg8rboxd1MyzRoMU3uNHxaOCfev05Bcn5A%3D%3D";
+  const [data, SetData] = useState([]);
 
   useEffect(() => {
     navigator.geolocation.watchPosition((pos) => {
       let latitude = pos.coords.latitude;
       let longitude = pos.coords.longitude;
-      Maps.Draw(latitude, longitude);
+
+      let max_latitude = (latitude += 0.01 * 1);
+      let min_latitude = (latitude -= 0.01 * 1);
+      let max_longitude = (longitude += 0.015 * 1);
+      let min_longitude = (longitude -= 0.015 * 1);
+      Maps.Draw(
+        latitude,
+        longitude,
+        max_latitude,
+        min_latitude,
+        max_longitude,
+        min_longitude
+      );
     });
+    Maps.init();
   }, []);
 
   const Maps = {
+    item: [],
     init() {
-      this.Draw();
+      this.getDate();
     },
-    Draw(lat, long) {
+    async getDate() {
+      const data = await (
+        await fetch(
+          `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=400&returnType=json&serviceKey=${Key}`
+        )
+      ).json();
+      SetData(data.data);
+      this.item = data.data;
+    },
+    Draw(lat, long, Maxlat, Minlat, Maxlong, Minlong) {
       const container = document.getElementById("map");
 
       const options = {
@@ -32,7 +57,20 @@ function Vaccination() {
         position: markerPosition,
       });
 
-      marker.setMap(map);
+      marker.setMap(map); // 마커 지도위에 그리기
+
+      this.item.forEach((item) => {
+        const lat = item.lat;
+        const long = item.lng;
+
+        if (long < Maxlong && long > Minlong) {
+          console.log(Maxlong, long);
+        }
+        // console.log(long, "Min: " + Minlong, "MAX: " + Maxlong);
+        // if ((long > Minlong) & (long < Maxlong)) {
+        //   console.log(item);
+        // }
+      });
     },
   };
 
