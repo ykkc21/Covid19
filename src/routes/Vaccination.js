@@ -66,9 +66,17 @@ function Vaccination() {
 
   return (
     <div className="Map_wrap" style={{ width: "100%", height: "100vh" }}>
-      <div id="map" style={{ width: "100%", height: "100vh" }}></div>
-      {/* <button onClick={this.zoomIn()}>지도레벨 - 1</button>
-      <button onClick={this.zoomIn()}>지도레벨 + 1</button> */}
+      {/* <div id="map" style={{ width: "100%", height: "100vh" }}></div> */}
+      <div className="Main_title">
+        <h1>코로나 예방접종센터</h1>
+      </div>
+      <div className="Text_Input">
+        <input
+          type="text"
+          style={{ width: "300px" }}
+          placeholder="원하는 지역을 검색하세요! (Ex:인천)"
+        />
+      </div>
     </div>
   );
 }
