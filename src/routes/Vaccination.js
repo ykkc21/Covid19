@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/Vaccination.css";
+import $ from "jquery";
 function Vaccination() {
   const { kakao } = window;
   const Key =
@@ -15,13 +16,14 @@ function Vaccination() {
 
       // Maps.Draw(latitude, longitude);
     });
-    // Maps.init();
+    Maps.init();
   }, []);
 
   const Maps = {
     item: [],
     init() {
       this.getDate();
+      this.SlideAnimtion();
     },
     async getDate() {
       const data = await (
@@ -56,6 +58,16 @@ function Vaccination() {
     },
     ClickDraw() {
       setText("");
+      this.SlideAnimtion();
+    },
+    SlideAnimtion() {
+      const slide = document.getElementsByClassName("slide");
+      [slide].forEach((item) => {
+        for (let i = 0; i < item.length; i++) {
+          const element = item[i];
+          $(element).animate({ left: "50%" }, "slow");
+        }
+      });
     },
   };
 
@@ -63,8 +75,8 @@ function Vaccination() {
     <div className="Map_wrap" style={{ width: "100%", height: "100vh" }}>
       {/* <div id="map" style={{ width: "100%", height: "100vh" }}></div> */}
       <div className="Text_Input">
-        <h1 className="title">코로나 예방접종센터</h1>
-        <div className="input_box">
+        <h1 className="title slide">코로나 예방접종센터</h1>
+        <div className="input_box slide">
           <input
             type="text"
             onChange={onChange}
