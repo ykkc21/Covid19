@@ -45,25 +45,18 @@ function Vaccination() {
       this.item.forEach((item) => {
         const { address, centerName, facilityName, lat, lng, sido, sigungu } =
           item;
-        var markerPosition = new kakao.maps.LatLng(lat, lng);
+        // var markerPosition = new kakao.maps.LatLng(lat, lng);
 
-        var marker = new kakao.maps.Marker({
-          position: markerPosition,
-        });
+        // var marker = new kakao.maps.Marker({
+        //   position: markerPosition,
+        // });
 
-        marker.setMap(map); // 마커 지도위에 그리기
-
-        //// 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
-        var iwContent = `<div style="padding:5px;">${facilityName}</div>`;
-
-        //인포 생성
-        var infowindow = new kakao.maps.InfoWindow({
-          content: iwContent,
-        });
+        // marker.setMap(map); // 마커 지도위에 그리기
       });
     },
-    zoomIn() {},
-    zoomOut() {},
+    ClickDraw() {
+      setText("");
+    },
   };
 
   return (
@@ -71,7 +64,6 @@ function Vaccination() {
       {/* <div id="map" style={{ width: "100%", height: "100vh" }}></div> */}
       <div className="Text_Input">
         <h1 className="title">코로나 예방접종센터</h1>
-        <h1 style={{ color: "#fff" }}>{text}</h1>
         <div className="input_box">
           <input
             type="text"
@@ -79,7 +71,9 @@ function Vaccination() {
             value={text}
             placeholder=" 원하는 지역을 검색하세요! (Ex:인천)"
           />
-          <button className="search">검색하기</button>
+          <button onClick={Maps.ClickDraw} className="search">
+            검색하기
+          </button>
         </div>
       </div>
     </div>
