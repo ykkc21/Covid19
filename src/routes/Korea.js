@@ -34,7 +34,9 @@ function Korea() {
             const decideCnt = $(item).find("decideCnt").text(); // 확진자 수
             const stateDt = $(item).find("stateDt").text();
             const createDt = $(item).find("createDt").text();
-            if (stateDt === EndDay) {
+
+            if (stateDt == EndDay) {
+              console.log(item);
               // 오늘 데이터 저장
               const obj = {
                 deathCnt,
