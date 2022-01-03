@@ -6,6 +6,7 @@ function Vaccination() {
     "ni1KPPPSl7rn5wXOSl9YieknHyh6P%2Fk8wXj4aOPMa4BxknTBR71SKg8rboxd1MyzRoMU3uNHxaOCfev05Bcn5A%3D%3D";
   const [data, SetData] = useState([]);
   const [text, setText] = useState("");
+  const onChange = (e) => setText(e.target.value);
 
   useEffect(() => {
     navigator.geolocation.watchPosition((pos) => {
@@ -70,12 +71,15 @@ function Vaccination() {
       {/* <div id="map" style={{ width: "100%", height: "100vh" }}></div> */}
       <div className="Text_Input">
         <h1 className="title">코로나 예방접종센터</h1>
-        <div>
+        <h1 style={{ color: "#fff" }}>{text}</h1>
+        <div className="input_box">
           <input
             type="text"
-            placeholder="원하는 지역을 검색하세요! (Ex:인천)"
+            onChange={onChange}
+            value={text}
+            placeholder=" 원하는 지역을 검색하세요! (Ex:인천)"
           />
-          <button>검색하기</button>
+          <button className="search">검색하기</button>
         </div>
       </div>
     </div>
