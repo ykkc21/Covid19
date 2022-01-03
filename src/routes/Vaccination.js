@@ -5,15 +5,16 @@ function Vaccination() {
   const Key =
     "ni1KPPPSl7rn5wXOSl9YieknHyh6P%2Fk8wXj4aOPMa4BxknTBR71SKg8rboxd1MyzRoMU3uNHxaOCfev05Bcn5A%3D%3D";
   const [data, SetData] = useState([]);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     navigator.geolocation.watchPosition((pos) => {
       let latitude = pos.coords.latitude;
       let longitude = pos.coords.longitude;
 
-      Maps.Draw(latitude, longitude);
+      // Maps.Draw(latitude, longitude);
     });
-    Maps.init();
+    // Maps.init();
   }, []);
 
   const Maps = {
@@ -67,15 +68,15 @@ function Vaccination() {
   return (
     <div className="Map_wrap" style={{ width: "100%", height: "100vh" }}>
       {/* <div id="map" style={{ width: "100%", height: "100vh" }}></div> */}
-      <div className="Main_title">
-        <h1>코로나 예방접종센터</h1>
-      </div>
       <div className="Text_Input">
-        <input
-          type="text"
-          style={{ width: "300px" }}
-          placeholder="원하는 지역을 검색하세요! (Ex:인천)"
-        />
+        <h1 className="title">코로나 예방접종센터</h1>
+        <div>
+          <input
+            type="text"
+            placeholder="원하는 지역을 검색하세요! (Ex:인천)"
+          />
+          <button>검색하기</button>
+        </div>
       </div>
     </div>
   );
