@@ -1,4 +1,7 @@
 import ApexCharts from "react-apexcharts";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 function Chart() {
   const data = JSON.parse(window.localStorage.getItem("total"));
@@ -144,6 +147,9 @@ function Chart() {
 
   return (
     <>
+      <Link to="/">
+        <FontAwesomeIcon icon={faHome} />
+      </Link>
       <h1 className="title">매일 데이터 갱신 오전 10시</h1>
       <div className="Chart_box_wrap">
         <ApexCharts

@@ -1,5 +1,8 @@
 import $ from "jquery";
 import "../css/World.css";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import Country from "../components/country/Country";
 import { useEffect, useState } from "react";
 function World() {
@@ -66,6 +69,9 @@ function World() {
         <h1 style={{ color: "#fff" }}>loading...</h1>
       ) : (
         <>
+          <Link to="/">
+            <FontAwesomeIcon icon={faHome} />
+          </Link>
           <div className="Last_Box main">
             <div className="container">
               <ul>

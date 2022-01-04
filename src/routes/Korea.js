@@ -15,10 +15,11 @@ function Korea() {
   function DataSetting() {
     const date = new Date();
     const year = date.getFullYear().toString();
-    const month = (date.getMonth() + 1).toString();
-    const day = date.getDate().toString();
-    const EndDay =
-      month < 10 ? `${year + 0 + month + 0 + day}` : `${year + month + day}`;
+    const month = ("0" + (date.getMonth() + 1)).slice(-2);
+    const day = ("0" + date.getDate()).slice(-2);
+    const EndDay = year + month + day;
+    console.log(EndDay);
+
     let TotalDate = [];
     $.ajax({
       type: "GET",
