@@ -17,7 +17,8 @@ function Korea() {
     const year = date.getFullYear().toString();
     const month = (date.getMonth() + 1).toString();
     const day = date.getDate().toString();
-    const EndDay = `${year + month + day}`;
+    const EndDay =
+      month < 10 ? `${year + 0 + month + 0 + day}` : `${year + month + day}`;
     let TotalDate = [];
     $.ajax({
       type: "GET",
@@ -36,7 +37,6 @@ function Korea() {
             const createDt = $(item).find("createDt").text();
 
             if (stateDt == EndDay) {
-              console.log(item);
               // 오늘 데이터 저장
               const obj = {
                 deathCnt,

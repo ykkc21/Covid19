@@ -169,18 +169,18 @@ function Chart() {
         <div className="decideCntBox s_box">
           <p>사망자</p>
           <h4 className="FirstCount">
-            {/* {deathCntData[3] != null
+            {deathCntData[3] != null
               ? deathCntData[3].toLocaleString()
-              : deathCntData[2].toLocaleString()} */}
+              : deathCntData[2].toLocaleString()}
             명<span className="firstcount"></span>
           </h4>
         </div>
         <div className="deathCntBox s_box">
           <p>확진자</p>
           <h4>
-            {/* {decideCntData[3] != null
+            {decideCntData[3] != null
               ? decideCntData[3].toLocaleString()
-              : decideCntData[2].toLocaleString()} */}
+              : decideCntData[2].toLocaleString()}
             명<span className="lastcount"></span>
           </h4>
         </div>
