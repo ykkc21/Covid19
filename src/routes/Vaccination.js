@@ -14,7 +14,7 @@ function Vaccination() {
       let latitude = pos.coords.latitude;
       let longitude = pos.coords.longitude;
 
-      // Maps.Draw(latitude, longitude);
+      Maps.Draw(latitude, longitude);
     });
     Maps.init();
   }, []);
@@ -44,21 +44,33 @@ function Vaccination() {
 
       var map = new kakao.maps.Map(container, options);
 
-      this.item.forEach((item) => {
-        const { address, centerName, facilityName, lat, lng, sido, sigungu } =
-          item;
-        // var markerPosition = new kakao.maps.LatLng(lat, lng);
+      // this.item.forEach((item) => {
+      //   const { address, centerName, facilityName, lat, lng, sido, sigungu } =
+      //     item;
+      //   // var markerPosition = new kakao.maps.LatLng(lat, lng);
 
-        // var marker = new kakao.maps.Marker({
-        //   position: markerPosition,
-        // });
+      //   // var marker = new kakao.maps.Marker({
+      //   //   position: markerPosition,
+      //   // });
 
-        // marker.setMap(map); // 마커 지도위에 그리기
+      //   // marker.setMap(map); // 마커 지도위에 그리기
+      // });
+      var markerPosition = new kakao.maps.LatLng(lat, long);
+
+      var marker = new kakao.maps.Marker({
+        position: markerPosition,
       });
+
+      marker.setMap(map); // 마커 지도위에 그리기
     },
     ClickDraw() {
       setText("");
-      this.SlideAnimtion();
+      $(".Text_Input")
+        .animate({ opacity: "0", height: "0" }, "slow")
+        .css({ "z-index": "-1" });
+      $("#map")
+        .animate({ opacity: "1", height: "100vh" }, "slow")
+        .css({ "z-index": "10" });
     },
     SlideAnimtion() {
       const slide = document.getElementsByClassName("slide");
@@ -73,7 +85,7 @@ function Vaccination() {
 
   return (
     <div className="Map_wrap" style={{ width: "100%", height: "100vh" }}>
-      {/* <div id="map" style={{ width: "100%", height: "100vh" }}></div> */}
+      <div id="map" style={{ width: "100%", opacity: "0", zIndex: "-1" }}></div>
       <div className="Text_Input">
         <h1 className="title slide">코로나 예방접종센터</h1>
         <div className="input_box slide">
