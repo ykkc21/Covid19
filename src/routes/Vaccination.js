@@ -14,7 +14,7 @@ function Vaccination() {
       let latitude = pos.coords.latitude;
       let longitude = pos.coords.longitude;
 
-      Maps.Draw(latitude, longitude);
+      // Maps.Draw(latitude, longitude);
     });
     Maps.init();
   }, []);
@@ -44,24 +44,13 @@ function Vaccination() {
 
       var map = new kakao.maps.Map(container, options);
 
-      // this.item.forEach((item) => {
-      //   const { address, centerName, facilityName, lat, lng, sido, sigungu } =
-      //     item;
-      //   // var markerPosition = new kakao.maps.LatLng(lat, lng);
+      // var markerPosition = new kakao.maps.LatLng(lat, long);
 
-      //   // var marker = new kakao.maps.Marker({
-      //   //   position: markerPosition,
-      //   // });
-
-      //   // marker.setMap(map); // 마커 지도위에 그리기
+      // var marker = new kakao.maps.Marker({
+      //   position: markerPosition,
       // });
-      var markerPosition = new kakao.maps.LatLng(lat, long);
 
-      var marker = new kakao.maps.Marker({
-        position: markerPosition,
-      });
-
-      marker.setMap(map); // 마커 지도위에 그리기
+      // marker.setMap(map); // 마커 지도위에 그리기
     },
     ClickDraw() {
       setText("");
