@@ -13,12 +13,6 @@ function Vaccination() {
   const onChange = (e) => setText(e.target.value);
 
   useEffect(() => {
-    navigator.geolocation.watchPosition((pos) => {
-      let latitude = pos.coords.latitude;
-      let longitude = pos.coords.longitude;
-
-      Maps.Draw(latitude, longitude);
-    });
     Maps.init();
   }, []);
 
@@ -26,7 +20,6 @@ function Vaccination() {
     item: [],
     init() {
       this.getDate();
-      // this.SlideAnimtion();
     },
     async getDate() {
       const data = await (
@@ -37,32 +30,36 @@ function Vaccination() {
       SetData(data.data);
       this.item = data.data;
     },
-    Draw(lat, long) {
-      const container = document.getElementById("map");
+    Draw(data) {
+      console.log(data);
+      // const container = document.getElementById("map");
 
-      const options = {
-        center: new kakao.maps.LatLng(lat, long),
-        level: 3,
-      };
+      // const options = {
+      //   center: new kakao.maps.LatLng(lat, long),
+      //   level: 3,
+      // };
 
-      var map = new kakao.maps.Map(container, options);
+      // var map = new kakao.maps.Map(container, options);
 
-      var markerPosition = new kakao.maps.LatLng(lat, long);
+      // var markerPosition = new kakao.maps.LatLng(lat, long);
 
-      var marker = new kakao.maps.Marker({
-        position: markerPosition,
-      });
+      // var marker = new kakao.maps.Marker({
+      //   position: markerPosition,
+      // });
 
-      marker.setMap(map); // 마커 지도위에 그리기
+      // marker.setMap(map); // 마커 지도위에 그리기
     },
     ClickDraw(text) {
-      setText("");
-      $(".Text_Input")
-        .animate({ opacity: "0" }, "slow")
-        .css({ "z-index": "-1" });
-      $("#map")
-        .animate({ opacity: "1", height: "100vh" }, "slow")
-        .css({ "z-index": "10" });
+      if (text == "") {
+        alert("입력값이 없습니다.");
+      } else {
+        $(".Text_Input")
+          .delay(30)
+          .animate({ opacity: "0" }, "slow")
+          .css({ "z-index": "-1" });
+        $("#map").animate({ opacity: "1" }, "slow").css({ "z-index": "10" });
+        this.Draw(text);
+      }
     },
     SlideAnimtion() {
       const slide = document.getElementsByClassName("slide");
@@ -88,6 +85,7 @@ function Vaccination() {
             type="text"
             onChange={onChange}
             value={text}
+            style={{ textAlign: "center" }}
             placeholder=" 원하는 지역을 검색하세요! (Ex:인천)"
           />
           <button
