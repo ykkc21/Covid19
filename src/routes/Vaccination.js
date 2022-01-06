@@ -28,10 +28,10 @@ function Vaccination() {
         )
       ).json();
       SetData(data.data);
-      this.item = data.data;
     },
-    Draw(data) {
+    Draw(itme) {
       console.log(data);
+
       // const container = document.getElementById("map");
 
       // const options = {
