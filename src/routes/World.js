@@ -26,7 +26,6 @@ function World() {
     "HK",
     "IT",
   ];
-  const len = document.getElementsByClassName("global_Date").length;
   const [data, SetData] = useState([]);
   const [loading, Setloading] = useState(true);
 

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import "../css/Vaccination.css";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 function Vaccination() {
   const { kakao } = window;
@@ -14,7 +17,7 @@ function Vaccination() {
       let latitude = pos.coords.latitude;
       let longitude = pos.coords.longitude;
 
-      // Maps.Draw(latitude, longitude);
+      Maps.Draw(latitude, longitude);
     });
     Maps.init();
   }, []);
@@ -23,7 +26,7 @@ function Vaccination() {
     item: [],
     init() {
       this.getDate();
-      this.SlideAnimtion();
+      // this.SlideAnimtion();
     },
     async getDate() {
       const data = await (
@@ -44,18 +47,18 @@ function Vaccination() {
 
       var map = new kakao.maps.Map(container, options);
 
-      // var markerPosition = new kakao.maps.LatLng(lat, long);
+      var markerPosition = new kakao.maps.LatLng(lat, long);
 
-      // var marker = new kakao.maps.Marker({
-      //   position: markerPosition,
-      // });
+      var marker = new kakao.maps.Marker({
+        position: markerPosition,
+      });
 
-      // marker.setMap(map); // 마커 지도위에 그리기
+      marker.setMap(map); // 마커 지도위에 그리기
     },
-    ClickDraw() {
+    ClickDraw(text) {
       setText("");
       $(".Text_Input")
-        .animate({ opacity: "0", height: "0" }, "slow")
+        .animate({ opacity: "0" }, "slow")
         .css({ "z-index": "-1" });
       $("#map")
         .animate({ opacity: "1", height: "100vh" }, "slow")
@@ -74,8 +77,11 @@ function Vaccination() {
 
   return (
     <div className="Map_wrap" style={{ width: "100%", height: "100vh" }}>
-      <div id="map" style={{ width: "100%", opacity: "0", zIndex: "-1" }}></div>
+      <div id="map"></div>
       <div className="Text_Input">
+        <Link to="/">
+          <FontAwesomeIcon icon={faHome} />
+        </Link>
         <h1 className="title slide">코로나 예방접종센터</h1>
         <div className="input_box slide">
           <input
@@ -84,7 +90,11 @@ function Vaccination() {
             value={text}
             placeholder=" 원하는 지역을 검색하세요! (Ex:인천)"
           />
-          <button onClick={Maps.ClickDraw} className="search">
+          <button
+            onClick={(e) => Maps.ClickDraw(e.target.value)}
+            value={text}
+            className="search"
+          >
             검색하기
           </button>
         </div>
