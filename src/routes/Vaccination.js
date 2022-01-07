@@ -10,10 +10,18 @@ function Vaccination() {
     "ni1KPPPSl7rn5wXOSl9YieknHyh6P%2Fk8wXj4aOPMa4BxknTBR71SKg8rboxd1MyzRoMU3uNHxaOCfev05Bcn5A%3D%3D";
   const [data, SetData] = useState([]);
   const [text, setText] = useState("");
+  const [position, setPostion] = useState({});
   const onChange = (e) => setText(e.target.value);
 
   useEffect(() => {
     Maps.init();
+    navigator.geolocation.watchPosition((e) => {
+      let obj = {
+        latitude: e.coords.latitude,
+        longitude: e.coords.longitude,
+      };
+      setPostion(obj);
+    });
   }, []);
 
   const Maps = {
@@ -30,7 +38,6 @@ function Vaccination() {
       SetData(data.data);
     },
     Draw(item) {
-      const container = document.getElementById("map");
       data.forEach((items) => {
         const {
           address, // 주소
@@ -43,18 +50,23 @@ function Vaccination() {
           sido, // 시도
           sigungu, // 시군구
         } = items;
-        console.log(items);
-
-        // const options = {
-        //   center: new kakao.maps.LatLng(lat, lng),
-        //   level: 3,
-        // };
-        // var map = new kakao.maps.Map(container, options);
-        // var markerPosition = new kakao.maps.LatLng(lat, lng);
-        // var marker = new kakao.maps.Marker({
-        //   position: markerPosition,
-        // });
-        // marker.setMap(map); // 마커 지도위에 그리기
+        const area = `${sido[0]}${sido[1]}`;
+        if (item === area) {
+          const container = document.getElementById("map");
+          const options = {
+            center: new kakao.maps.LatLng(
+              position["latitude"],
+              position["longitude"]
+            ),
+            level: 10,
+          };
+          var map = new kakao.maps.Map(container, options);
+          var markerPosition = new kakao.maps.LatLng(lat, lng);
+          var marker = new kakao.maps.Marker({
+            position: markerPosition,
+          });
+          marker.setMap(map); // 마커 지도위에 그리기
+        }
       });
     },
     ClickDraw(text) {
