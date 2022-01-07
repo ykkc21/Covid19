@@ -17,7 +17,7 @@ function Vaccination() {
   }, []);
 
   const Maps = {
-    item: [],
+    // item: [],
     init() {
       this.getDate();
     },
@@ -29,25 +29,33 @@ function Vaccination() {
       ).json();
       SetData(data.data);
     },
-    Draw(itme) {
-      console.log(data);
+    Draw(item) {
+      const container = document.getElementById("map");
+      data.forEach((items) => {
+        const {
+          address, // 주소
+          centerName, //접종센터 이름
+          facilityName, // 시설명
+          id, // 아이디
+          lat, // 위도
+          lng, // 경도
+          phoneNumber, // 시설 전화번호
+          sido, // 시도
+          sigungu, // 시군구
+        } = items;
+        console.log(items);
 
-      // const container = document.getElementById("map");
-
-      // const options = {
-      //   center: new kakao.maps.LatLng(lat, long),
-      //   level: 3,
-      // };
-
-      // var map = new kakao.maps.Map(container, options);
-
-      // var markerPosition = new kakao.maps.LatLng(lat, long);
-
-      // var marker = new kakao.maps.Marker({
-      //   position: markerPosition,
-      // });
-
-      // marker.setMap(map); // 마커 지도위에 그리기
+        // const options = {
+        //   center: new kakao.maps.LatLng(lat, lng),
+        //   level: 3,
+        // };
+        // var map = new kakao.maps.Map(container, options);
+        // var markerPosition = new kakao.maps.LatLng(lat, lng);
+        // var marker = new kakao.maps.Marker({
+        //   position: markerPosition,
+        // });
+        // marker.setMap(map); // 마커 지도위에 그리기
+      });
     },
     ClickDraw(text) {
       if (text == "") {
