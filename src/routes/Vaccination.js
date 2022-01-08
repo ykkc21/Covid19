@@ -60,23 +60,26 @@ function Vaccination() {
       if (markers.length === 0) {
         alert("알맞는 데이터가 없습니다.");
       } else {
-        alert(`현제 접종센터는 ${markers.length}곳 입니다.`);
+        for (let i = 0; i < markers.length; i++) {
+          const container = document.getElementById("map");
+          const options = {
+            center: new kakao.maps.LatLng(
+              position["latitude"],
+              position["longitude"]
+            ),
+            level: 10,
+          };
+          var map = new kakao.maps.Map(container, options);
+          var markerPosition = new kakao.maps.LatLng(
+            markers[i].lat,
+            markers[i].lng
+          );
+          var marker = new kakao.maps.Marker({
+            position: markerPosition,
+          });
+          marker.setMap(map); // 마커 지도위에 그리기
+        }
       }
-
-      // const container = document.getElementById("map");
-      // const options = {
-      //   center: new kakao.maps.LatLng(
-      //     position["latitude"],
-      //     position["longitude"]
-      //   ),
-      //   level: 10,
-      // };
-      // var map = new kakao.maps.Map(container, options);
-      // var markerPosition = new kakao.maps.LatLng(lat, lng);
-      // var marker = new kakao.maps.Marker({
-      //   position: markerPosition,
-      // });
-      // marker.setMap(map); // 마커 지도위에 그리기
     },
     ClickDraw(text) {
       if (text == "") {
