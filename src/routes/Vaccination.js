@@ -15,14 +15,9 @@ function Vaccination() {
 
   useEffect(() => {
     Maps.init();
-    navigator.geolocation.watchPosition((e) => {
-      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
-        mapOption = {
-          center: new kakao.maps.LatLng(e.coords.latitude, e.coords.longitude), // 지도의 중심좌표
-          level: 12, // 지도의 확대 레벨
-        };
-      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-    });
+    // navigator.geolocation.watchPosition((e) => {
+
+    // });
   }, []);
 
   const Maps = {
@@ -39,6 +34,13 @@ function Vaccination() {
       SetData(data.data);
     },
     Draw(item) {
+      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(37.57613074143258, 126.97696604175948), // 지도의 중심좌표
+          level: 12, // 지도의 확대 레벨
+        };
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
       const markers = [];
       data.forEach((items) => {
         const {
@@ -54,14 +56,33 @@ function Vaccination() {
         } = items;
         const area = `${sido[0]}${sido[1]}`;
         if (item === area) {
-          markers.push(items);
+          console.log(items);
+          markers.push(new kakao.maps.LatLng(items.lat, items.lng));
         }
       });
 
-      if (markers.length === 0) {
-        alert("알맞는 데이터가 없습니다.");
-      } else {
+      // var points = [
+      //   new kakao.maps.LatLng(33.452278, 126.567803),
+      //   new kakao.maps.LatLng(33.452671, 126.574792),
+      //   new kakao.maps.LatLng(33.451744, 126.572441),
+      // ];
+      // 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+      var bounds = new kakao.maps.LatLngBounds();
+      let i, marker;
+      for (i = 0; i < markers.length; i++) {
+        // 배열의 좌표들이 잘 보이게 마커를 지도에 추가합니다
+        marker = new kakao.maps.Marker({ position: markers[i] });
+        marker.setMap(map);
+
+        // LatLngBounds 객체에 좌표를 추가합니다
+        bounds.extend(markers[i]);
       }
+
+      map.setBounds(bounds);
+      // if (markers.length === 0) {
+      //   alert("알맞는 데이터가 없습니다.");
+      // } else {
+      // }
     },
     ClickDraw(text) {
       if (text == "") {
