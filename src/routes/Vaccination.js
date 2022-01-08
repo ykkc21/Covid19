@@ -16,11 +16,12 @@ function Vaccination() {
   useEffect(() => {
     Maps.init();
     navigator.geolocation.watchPosition((e) => {
-      let obj = {
-        latitude: e.coords.latitude,
-        longitude: e.coords.longitude,
-      };
-      setPostion(obj);
+      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(e.coords.latitude, e.coords.longitude), // 지도의 중심좌표
+          level: 12, // 지도의 확대 레벨
+        };
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
     });
   }, []);
 
@@ -60,25 +61,6 @@ function Vaccination() {
       if (markers.length === 0) {
         alert("알맞는 데이터가 없습니다.");
       } else {
-        for (let i = 0; i < markers.length; i++) {
-          const container = document.getElementById("map");
-          const options = {
-            center: new kakao.maps.LatLng(
-              position["latitude"],
-              position["longitude"]
-            ),
-            level: 10,
-          };
-          var map = new kakao.maps.Map(container, options);
-          var markerPosition = new kakao.maps.LatLng(
-            markers[i].lat,
-            markers[i].lng
-          );
-          var marker = new kakao.maps.Marker({
-            position: markerPosition,
-          });
-          marker.setMap(map); // 마커 지도위에 그리기
-        }
       }
     },
     ClickDraw(text) {
