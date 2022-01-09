@@ -61,12 +61,6 @@ function Vaccination() {
         }
       });
 
-      // var points = [
-      //   new kakao.maps.LatLng(33.452278, 126.567803),
-      //   new kakao.maps.LatLng(33.452671, 126.574792),
-      //   new kakao.maps.LatLng(33.451744, 126.572441),
-      // ];
-      // 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
       var bounds = new kakao.maps.LatLngBounds();
       let i, marker;
       for (i = 0; i < markers.length; i++) {
@@ -79,10 +73,11 @@ function Vaccination() {
       }
 
       map.setBounds(bounds);
-      // if (markers.length === 0) {
-      //   alert("알맞는 데이터가 없습니다.");
-      // } else {
-      // }
+
+      if (markers.length === 0) {
+        alert("알맞는 데이터가 없습니다.");
+      } else {
+      }
     },
     ClickDraw(text) {
       if (text == "") {
