@@ -15,9 +15,6 @@ function Vaccination() {
 
   useEffect(() => {
     Maps.init();
-    // navigator.geolocation.watchPosition((e) => {
-
-    // });
   }, []);
 
   const Maps = {
@@ -56,22 +53,23 @@ function Vaccination() {
         } = items;
         const area = `${sido[0]}${sido[1]}`;
         if (item === area) {
-          console.log(items);
           markers.push(new kakao.maps.LatLng(items.lat, items.lng));
         }
       });
 
-      var bounds = new kakao.maps.LatLngBounds();
+      let bounds = new kakao.maps.LatLngBounds();
       let i, marker;
       for (i = 0; i < markers.length; i++) {
         // 배열의 좌표들이 잘 보이게 마커를 지도에 추가합니다
-        marker = new kakao.maps.Marker({ position: markers[i] });
+        marker = new kakao.maps.Marker({
+          position: markers[i],
+          clickable: true,
+        });
         marker.setMap(map);
 
         // LatLngBounds 객체에 좌표를 추가합니다
         bounds.extend(markers[i]);
       }
-
       map.setBounds(bounds);
 
       if (markers.length === 0) {
