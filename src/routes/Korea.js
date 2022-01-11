@@ -3,9 +3,8 @@ import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.css";
 import "../css/Korea.css";
 import Chart from "../components/Chart/Chart";
+
 function Korea() {
-  const Key =
-    "ni1KPPPSl7rn5wXOSl9YieknHyh6P%2Fk8wXj4aOPMa4BxknTBR71SKg8rboxd1MyzRoMU3uNHxaOCfev05Bcn5A%3D%3D";
   const [loading, SetLoading] = useState(true);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ function Korea() {
     let TotalDate = [];
     $.ajax({
       type: "GET",
-      url: `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${Key}&pageNo=1&numOfRows=3&startCreateDt=20191230&endCreateDt=${EndDay}`,
+      url: `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${process.env.REACT_APP_KEY}&pageNo=1&numOfRows=3&startCreateDt=20191230&endCreateDt=${EndDay}`,
       dataType: "xml",
       error: function (err) {
         console.error(err);
