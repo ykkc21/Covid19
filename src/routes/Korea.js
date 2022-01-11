@@ -11,7 +11,6 @@ function Korea() {
     DataSetting();
   }, []);
 
-  console.log(process.env.REACT_APP_API_KEY);
   function DataSetting() {
     const date = new Date();
     const year = date.getFullYear().toString();
@@ -28,7 +27,6 @@ function Korea() {
         console.error(err);
       },
       success: function (xml) {
-        console.log(xml);
         $(xml)
           .find("item")
           .each((idx, item) => {
@@ -54,14 +52,6 @@ function Korea() {
               };
               TotalDate.push(obj);
             } else if (stateDt == EndDay * 1 - 2) {
-              // 어제 데이터 저장
-              const obj = {
-                deathCnt,
-                decideCnt,
-                createDt,
-              };
-              TotalDate.push(obj);
-            } else if (stateDt == EndDay * 1 - 3) {
               // 어제 데이터 저장
               const obj = {
                 deathCnt,
