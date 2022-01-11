@@ -21,7 +21,7 @@ function Korea() {
     let TotalDate = [];
     $.ajax({
       type: "GET",
-      url: `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${process.env.REACT_APP_KEY}&pageNo=1&numOfRows=3&startCreateDt=20191230&endCreateDt=${EndDay}`,
+      url: `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${process.env.REACT_APP_API_KEY}&pageNo=1&numOfRows=3&startCreateDt=20191230&endCreateDt=${EndDay}`,
       dataType: "xml",
       error: function (err) {
         console.error(err);
