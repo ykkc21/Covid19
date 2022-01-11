@@ -11,6 +11,7 @@ function Korea() {
     DataSetting();
   }, []);
 
+  console.log(process.env.REACT_APP_API_KEY);
   function DataSetting() {
     const date = new Date();
     const year = date.getFullYear().toString();
@@ -27,6 +28,7 @@ function Korea() {
         console.error(err);
       },
       success: function (xml) {
+        console.log(xml);
         $(xml)
           .find("item")
           .each((idx, item) => {
@@ -34,7 +36,6 @@ function Korea() {
             const decideCnt = $(item).find("decideCnt").text(); // 확진자 수
             const stateDt = $(item).find("stateDt").text();
             const createDt = $(item).find("createDt").text();
-            console.log(item);
 
             if (stateDt == EndDay) {
               // 오늘 데이터 저장
@@ -70,7 +71,6 @@ function Korea() {
               TotalDate.push(obj);
             }
           });
-
         window.localStorage.setItem("total", JSON.stringify(TotalDate)); // 4일치 데이터
         SetLoading(false);
       },
