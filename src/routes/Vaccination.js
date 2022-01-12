@@ -6,8 +6,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import $ from "jquery";
 function Vaccination() {
   const { kakao } = window;
-  const Key =
-    "ni1KPPPSl7rn5wXOSl9YieknHyh6P%2Fk8wXj4aOPMa4BxknTBR71SKg8rboxd1MyzRoMU3uNHxaOCfev05Bcn5A%3D%3D";
+
   const [data, SetData] = useState([]);
   const [text, setText] = useState("");
   const [position, setPostion] = useState({});
@@ -25,7 +24,7 @@ function Vaccination() {
     async getDate() {
       const data = await (
         await fetch(
-          `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=400&returnType=json&serviceKey=${Key}`
+          `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=400&returnType=json&serviceKey=${process.env.REACT_APP_API_KEY}`
         )
       ).json();
       SetData(data.data);
