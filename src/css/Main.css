@@ -5,18 +5,60 @@
 }
 
 .Menu_Box {
-  background-color: red;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.Menu_Box > div {
+.Menu {
   width: calc(100% / 3) !important;
   float: left;
   height: 100vh;
+  transition: 0.5s;
 }
+
+.Menu:nth-of-type(1) {
+  background-color: blue;
+}
+
+.Menu:nth-of-type(2) {
+  background-color: red;
+}
+
+.Menu:nth-of-type(3) {
+  background-color: green;
+}
+
+.Menu:nth-of-type(1):hover {
+  width: calc(100% / 3 + 10%) !important;
+  height: 100vh;
+}
+
+.Menu:nth-of-type(1):hover ~ .Menu:nth-of-type(2) {
+  width: calc(100% / 3 - 10%) !important;
+  height: 100vh;
+}
+.Menu:nth-of-type(1):hover ~ .Menu:nth-of-type(3) {
+  width: calc(100% / 3 - 10%) !important;
+  height: 100vh;
+}
+/* 끝 */
+
+/* .Menu:nth-of-type(2):hover {
+  width: calc(100% / 3 + 10%) !important;
+  height: 100vh;
+}
+
+.Menu:nth-of-type(2):hover ~ .Menu:nth-of-type(1) {
+  width: calc(100% / 3 - 10%) !important;
+  height: 100vh;
+  background-color: pink !important;
+}
+.Menu:nth-of-type(2):hover ~ .Menu:nth-of-type(3) {
+  width: calc(100% / 3 - 10%) !important;
+  height: 100vh;
+} */
 
 /* .MenuBox > .container {
   padding: 100px 0 !important;
