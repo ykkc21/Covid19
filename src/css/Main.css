@@ -31,7 +31,7 @@
   transition: 0.8s;
 }
 
-.Menu:nth-of-type(1) {
+/* .Menu:nth-of-type(1) {
   background-color: blue;
 }
 
@@ -41,7 +41,7 @@
 
 .Menu:nth-of-type(3) {
   background-color: green;
-}
+} */
 
 .Menu:nth-of-type(1):hover {
   width: calc(100% / 3 + 30%) !important;

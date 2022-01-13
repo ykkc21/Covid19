@@ -6,7 +6,7 @@ function Main() {
   return (
     <div className="wrap">
       <div className="Menu_wrap col-lg-12">
-        <div className="Menu_Box col-lg-12">
+        <div className="Menu_Box col-lg-11">
           <div className="Menu">
             <div className="image_box"></div>
           </div>
