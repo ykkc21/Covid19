@@ -10,7 +10,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  overflow: hidden;
 }
 
 .Menu {
@@ -18,15 +17,16 @@
   height: 100vh;
   transition: 0.5s;
   position: relative;
+  overflow: hidden;
 }
 
 .image_box {
-  width: 450px;
-  height: 300px;
+  width: 400px;
+  height: 250px;
   background-color: #000;
   position: absolute;
   top: 80%;
-  left: -100%;
+  left: 50%;
   transform: translate(-50%, -50%);
   transition: 0.8s;
 }
@@ -47,11 +47,10 @@
   width: calc(100% / 3 + 30%) !important;
   height: 100vh;
 }
-.Menu:nth-of-type(1):hover > .image_box {
+/* .Menu:nth-of-type(1):hover > .image_box {
   left: 70%;
   z-index: 10;
-  /* background-color: pink !important; */
-}
+} */
 
 .Menu:nth-of-type(2):hover {
   width: calc(100% / 3 + 30%) !important;
