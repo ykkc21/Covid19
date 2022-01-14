@@ -3,7 +3,7 @@ import "../css/World.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import Country from "../components/country/Country";
+// import Country from "../components/country/Country";
 import { useEffect, useState } from "react";
 function World() {
   const worldCode = [
@@ -74,7 +74,7 @@ function World() {
           <div className="Last_Box main">
             <div className="container">
               <ul>
-                {data.map((item, idx) => {
+                {/* {data.map((item, idx) => {
                   return (
                     <Country
                       key={idx}
@@ -84,7 +84,7 @@ function World() {
                       TotalDeaths={item.TotalDeaths}
                     />
                   );
-                })}
+                })} */}
               </ul>
             </div>
           </div>

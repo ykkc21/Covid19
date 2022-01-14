@@ -24,6 +24,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
   }
 
   .Change_Menu > ul > li {
@@ -41,21 +42,15 @@
   }
 
   .Change_Menu > ul > li:nth-of-type(2) {
-    top: 50%;
-    left: 0%;
-    transform: translate(0%, -50%);
+    top: 33.333%;
   }
 
   .Change_Menu > ul > li:nth-of-type(3) {
-    top: 100%;
-    left: 0%;
-    transform: translate(0%, -100%);
+    top: 66.666%;
   }
 
   .Change_Menu > ul > li:nth-of-type(4) {
-    top: 150%;
-    left: 0%;
-    transform: translate(0%, -150%);
+    top: 99.999%;
   }
 
   .Change_Item {
