@@ -12,59 +12,50 @@
   display: flex;
 }
 
-.Menu {
-  width: calc(100% / 3) !important;
-  height: 100vh;
-  transition: 0.5s;
-  position: relative;
-  overflow: hidden;
-}
-
-.image_box {
-  width: 400px;
-  height: 250px;
-  background-color: #000;
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.8s;
-}
-
-/* .Menu:nth-of-type(1) {
-  background-color: blue;
-}
-
-.Menu:nth-of-type(2) {
-  background-color: red;
-}
-
-.Menu:nth-of-type(3) {
-  background-color: green;
-} */
-
-.Menu:nth-of-type(1):hover {
-  width: calc(100% / 3 + 30%) !important;
-  height: 100vh;
-}
-/* .Menu:nth-of-type(1):hover > .image_box {
-  left: 70%;
-  z-index: 10;
-} */
-
-.Menu:nth-of-type(2):hover {
-  width: calc(100% / 3 + 30%) !important;
-  height: 100vh;
-}
-
-.Menu:nth-of-type(3):hover {
-  width: calc(100% / 3 + 30%) !important;
-  height: 100vh;
-}
-
-/* .MenuBox > .container {
-  padding: 100px 0 !important;
-} */
-
 @media screen and (max-width: 1440px) {
+  .Change_Menu {
+    width: 50%;
+    height: 100vh;
+    background-color: rebeccapurple;
+    /* overflow: hidden; */
+  }
+
+  .Change_Menu > ul {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .Change_Menu > ul > li {
+    font-size: 70px;
+    position: absolute;
+  }
+
+  .Change_Menu > ul > li:nth-of-type(1) {
+    top: 0;
+  }
+
+  .Change_Menu > ul > li:nth-of-type(2) {
+    top: 50%;
+    left: 0%;
+    transform: translate(0%, -50%);
+  }
+
+  .Change_Menu > ul > li:nth-of-type(3) {
+    top: 100%;
+    left: 0%;
+    transform: translate(0%, -100%);
+  }
+
+  .Change_Menu > ul > li:nth-of-type(4) {
+    top: 150%;
+    left: 0%;
+    transform: translate(0%, -150%);
+  }
+
+  .Change_Item {
+    width: 50%;
+    height: 100vh;
+    background-color: red;
+  }
 }
