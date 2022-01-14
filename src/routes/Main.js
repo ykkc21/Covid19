@@ -14,16 +14,16 @@ function Main() {
       const Position = $(items[i]).position().top;
 
       if (item_num == target_num) {
-        $(items[i]).animate({
+        $(items[i]).css({
           top: "50%",
           left: "0%",
-          transform: `translate(0%, -50%)`,
+          transform: "translate(0%, -50%)",
         });
       } else {
-        $(item).animate({
-          top: Position + Position * 0.5,
+        $(items[i]).css({
+          top: `${Position + Position * 0.5}px`,
           left: "0%",
-          transform: `translate(0%, -${Position + Position * 0.5}px)`,
+          transform: `translate(0%, ${Position * 0.5}px)`,
         });
       }
     }
