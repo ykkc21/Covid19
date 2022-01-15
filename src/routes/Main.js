@@ -4,15 +4,17 @@ import "../css/Main.css";
 import "../css/index.css";
 import $ from "jquery";
 function Main() {
+  $(window).bind("wheel", (e) => {
+    console.log("마우스 휠: " + e);
+  });
+
   return (
     <div className="wrap">
       <div className="Menu_wrap col-lg-12">
         <section id="View">
-          <div className="background_img"></div>
-          <div className="first"></div>
-        </section>
-        <section id="Korea">
-          <div className="container"></div>
+          <div className="Main_Text">
+            <h1>Covid19 - NoticeBoard</h1>
+          </div>
         </section>
       </div>
     </div>
