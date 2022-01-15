@@ -5,7 +5,7 @@ import "../css/index.css";
 import $ from "jquery";
 function Main() {
   $(window).bind("wheel", (e) => {
-    console.log("마우스 휠: " + e);
+    console.log(e.originalEvent.wheelDelta);
   });
 
   return (
@@ -16,6 +16,8 @@ function Main() {
             <h1>Covid19 - NoticeBoard</h1>
           </div>
         </section>
+
+        <section id="test"></section>
       </div>
     </div>
   );
