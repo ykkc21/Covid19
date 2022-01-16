@@ -22,58 +22,20 @@ function Main() {
     },
   };
   return (
-    <div>
-      <h2> Single Item</h2>
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
+    <div className="wrap">
+      <div className="Menu_wrap col-lg-12">
+        <div className="Main_box">
+          <ul>
+            <Slider {...settings}>
+              <li className="Slider-items">1</li>
+              <li className="Slider-items">2</li>
+              <li className="Slider-items">3</li>
+              <li className="Slider-items">4</li>
+            </Slider>
+          </ul>
         </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider>
+      </div>
     </div>
-    // <div className="wrap">
-    //   <div className="Menu_wrap col-lg-12">
-    //     <Slider settings={settings}>
-    //       <div>
-    //         <h1>1</h1>
-    //       </div>
-    //       <div>
-    //         <h1>2</h1>
-    //       </div>
-    //       <div>
-    //         <h1>3</h1>
-    //       </div>
-    //     </Slider>
-    //     {/* <div className="Main_box">
-    //       <button arrow_num="1" className="btn right">
-    //         오른쪽
-    //       </button>
-    //       <button arrow_num="-1" className="btn left">
-    //         왼쪽
-    //       </button>
-    //       <ul>
-    //         <li></li>
-    //         <li></li>
-    //         <li></li>
-    //         <li></li>
-    //       </ul>
-    //     </div> */}
-    //   </div>
-    // </div>
   );
 }
 export default Main;
