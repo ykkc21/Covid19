@@ -3,9 +3,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../css/Main.css";
 import "../css/index.css";
 import $ from "jquery";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 function Main() {
   const settings = {
     dots: true,
@@ -23,18 +20,7 @@ function Main() {
   };
   return (
     <div className="wrap">
-      <div className="Menu_wrap col-lg-12">
-        <div className="Main_box">
-          <ul>
-            <Slider {...settings}>
-              <li className="Slider-items">1</li>
-              <li className="Slider-items">2</li>
-              <li className="Slider-items">3</li>
-              <li className="Slider-items">4</li>
-            </Slider>
-          </ul>
-        </div>
-      </div>
+      <div className="Menu_wrap col-lg-12"></div>
     </div>
   );
 }
