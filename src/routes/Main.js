@@ -27,7 +27,15 @@ function Main() {
           <h1 className="Main_Title">Covid-19 ProgressBoard</h1>
         </section>
         <section id="About">
-          <div className="text_box"></div>
+          <div className="text_box">
+            <h3>About</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              corporis exercitationem recusandae alias, quaerat laborum voluptas
+              quisquam id sunt eveniet quos animi aliquid sint modi, cum esse
+              temporibus quas harum.
+            </p>
+          </div>
         </section>
         <section id="Content"></section>
         <footer></footer>

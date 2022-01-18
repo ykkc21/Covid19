@@ -67,6 +67,24 @@ nav ul li a {
   background-repeat: no-repeat;
 }
 
+#About .text_box h3 {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  font-size: 75px;
+}
+#About .text_box h3::after {
+  display: block;
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  width: 70px;
+  height: 5px;
+  background-color: #fff;
+}
+
 @media screen and (max-width: 1440px) {
   #View {
     width: 100%;
@@ -85,8 +103,29 @@ nav ul li a {
     background-position: 50.3% 0%;
   }
   #About .text_box {
-    width: 70%;
+    width: 40%;
     height: 100%;
     float: right;
+    padding: 100px 0px !important;
+  }
+  #About .text_box h3 {
+    color: #fff;
+    text-align: center;
+    font-size: 60px;
+  }
+  #About .text_box p {
+    width: 100%;
+    margin: 0 auto !important;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+    margin-top: 60px !important;
+    font-size: 20px;
+  }
+
+  #Content {
+    width: 100%;
+    height: 560px;
+    background-color: #373737;
   }
 }
