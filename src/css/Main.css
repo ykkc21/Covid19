@@ -46,6 +46,7 @@ nav ul li a {
   height: 500px;
   position: relative;
   background-image: url(/public/image/corona.jpg);
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: top;
   position: relative;
@@ -61,8 +62,9 @@ nav ul li a {
   height: 500px;
   position: relative;
   background-image: url(/public/image/corona.jpg);
-  background-repeat: no-repeat;
   background-position: 0% 87.6%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 1440px) {
@@ -80,7 +82,7 @@ nav ul li a {
   }
 
   #About {
-    background-position: 50.3% 88%;
+    background-position: 50.3% 0%;
   }
   #About .text_box {
     width: 70%;
