@@ -1,44 +1,90 @@
-.Menu_wrap {
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Ubuntu:ital@1&display=swap");
+
+.Main_wrap {
   width: 100%;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.9);
 }
 
-.Main_box {
+.Main_container {
+  max-width: 1700px;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  margin: 0 auto !important;
 }
 
-.Main_box > ul {
-  width: 400%;
+header {
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  top: 0%;
+  z-index: 10;
+}
+
+nav {
+  width: 50%;
   height: 100%;
+  float: right;
+}
+
+nav ul {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 18px !important;
+}
+
+nav ul li a {
+  color: #ddd;
+  font-size: 23px;
+}
+
+#View {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  background-image: url(/public/image/corona.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
   position: relative;
 }
 
-.Slider-items {
-  display: inline-block !important;
-  width: 1440px !important;
-  height: 100vh !important;
-  color: #fff;
+#View h1 {
+  color: #ddd;
+  font-size: 90px;
+}
+
+#About {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  background-image: url(/public/image/corona.jpg);
+  background-repeat: no-repeat;
+  background-position: 0% 87.6%;
 }
 
 @media screen and (max-width: 1440px) {
-  .Main_box > ul > li {
-    display: inline-block;
-    width: 1440px;
+  #View {
+    width: 100%;
+    height: 500px;
+  }
+  #View h1 {
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Ubuntu", sans-serif;
+  }
+
+  #About {
+    background-position: 50.3% 88%;
+  }
+  #About .text_box {
+    width: 70%;
     height: 100%;
-  }
-  .Main_box > ul > li:nth-of-type(1) {
-    background-color: aqua;
-  }
-  .Main_box > ul > li:nth-of-type(2) {
-    background-color: blanchedalmond;
-  }
-  .Main_box > ul > li:nth-of-type(3) {
-    background-color: blueviolet;
-  }
-  .Main_box > ul > li:nth-of-type(4) {
-    background-color: yellow;
+    float: right;
   }
 }

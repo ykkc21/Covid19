@@ -3,24 +3,35 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../css/Main.css";
 import "../css/index.css";
 import $ from "jquery";
+
 function Main() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    beforeChange: function (currentSlide, nextSlide) {
-      console.log("before change", currentSlide, nextSlide);
-    },
-    afterChange: function (currentSlide) {
-      console.log("after change", currentSlide);
-    },
-  };
   return (
     <div className="wrap">
-      <div className="Menu_wrap col-lg-12"></div>
+      <div className="Main_wrap col-lg-12">
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <Link to="#">Home</Link>
+              </li>
+              <li>
+                <Link to="#">About</Link>
+              </li>
+              <li>
+                <Link to="#">Content</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <section id="View">
+          <h1 className="Main_Title">Covid-19 ProgressBoard</h1>
+        </section>
+        <section id="About">
+          <div className="text_box"></div>
+        </section>
+        <section id="Content"></section>
+        <footer></footer>
+      </div>
     </div>
   );
 }
