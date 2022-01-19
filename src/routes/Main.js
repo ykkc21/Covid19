@@ -39,7 +39,17 @@ function Main() {
         </section>
         <section id="Content">
           <h1>Content</h1>
-          <div className="container"></div>
+          <div className="container">
+            <div className="boxs">
+              <div className="card">
+                <div className="card_image"></div>
+              </div>
+              <div className="card">
+                <div className="card_image"></div>
+              </div>
+              <div className="card"></div>
+            </div>
+          </div>
         </section>
         <footer></footer>
       </div>
