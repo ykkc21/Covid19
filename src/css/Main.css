@@ -55,6 +55,12 @@ nav ul li a {
 #View h1 {
   color: #ddd;
   font-size: 90px;
+  text-align: center;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Ubuntu", sans-serif;
 }
 
 #About {
@@ -65,6 +71,13 @@ nav ul li a {
   background-position: 0% 87.6%;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+#About .text_box {
+  width: 40%;
+  height: 100%;
+  float: right;
+  padding: 100px 0px !important;
 }
 
 #About .text_box h3 {
@@ -84,8 +97,46 @@ nav ul li a {
   height: 5px;
   background-color: #fff;
 }
+
+#About .text_box p {
+  width: 100%;
+  margin: 0 auto !important;
+  text-align: center;
+  color: #fff;
+  line-height: 30px;
+  margin-top: 60px !important;
+  font-size: 20px;
+}
+
+#Content {
+  width: 100%;
+  height: 800px;
+  background-color: #373737;
+  padding-top: 80px !important;
+}
+
+#Content h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 70px;
+  font-family: "Arvo", serif;
+}
+
+.boxs {
+  margin-top: 80px !important;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .card {
   box-shadow: 0 10px 9px 0px #000;
+  width: 300px;
+  height: 450px;
+  border: none;
+  background-color: inherit;
 }
 .card_image {
   width: 100%;
@@ -94,13 +145,13 @@ nav ul li a {
 
 .card:nth-of-type(1) .card_image {
   background: url(/public/image/korean-flag-g19dc5027d_640.png) no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
 }
 
 .card:nth-of-type(2) .card_image {
   background: url(/public/image/earth-gd331eecbb_1920.jpg) no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
 }
 
@@ -112,69 +163,7 @@ nav ul li a {
 }
 
 @media screen and (max-width: 1440px) {
-  #View {
-    width: 100%;
-    height: 500px;
-  }
-  #View h1 {
-    text-align: center;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: "Ubuntu", sans-serif;
-  }
-
   #About {
     background-position: 50.3% 0%;
-  }
-  #About .text_box {
-    width: 40%;
-    height: 100%;
-    float: right;
-    padding: 100px 0px !important;
-  }
-  #About .text_box h3 {
-    color: #fff;
-    text-align: center;
-    font-size: 60px;
-  }
-  #About .text_box p {
-    width: 100%;
-    margin: 0 auto !important;
-    text-align: center;
-    color: #fff;
-    line-height: 30px;
-    margin-top: 60px !important;
-    font-size: 20px;
-  }
-
-  #Content {
-    width: 100%;
-    height: 800px;
-    background-color: #373737;
-    padding-top: 80px !important;
-  }
-
-  #Content h1 {
-    text-align: center;
-    color: #fff;
-    font-size: 70px;
-    font-family: "Arvo", serif;
-  }
-  .boxs {
-    margin-top: 80px !important;
-    width: 100%;
-    height: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  .boxs .card {
-    width: 300px;
-    height: 450px;
-    border: none;
-    background-color: inherit;
   }
 }
