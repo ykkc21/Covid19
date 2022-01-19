@@ -47,7 +47,9 @@ function Main() {
               <div className="card">
                 <div className="card_image"></div>
               </div>
-              <div className="card"></div>
+              <div className="card">
+                <div className="card_image"></div>
+              </div>
             </div>
           </div>
         </section>
