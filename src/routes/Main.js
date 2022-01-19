@@ -37,7 +37,10 @@ function Main() {
             </p>
           </div>
         </section>
-        <section id="Content"></section>
+        <section id="Content">
+          <h1>Content</h1>
+          <div className="container"></div>
+        </section>
         <footer></footer>
       </div>
     </div>
