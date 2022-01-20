@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../css/Main.css";
 import "../css/index.css";
+import Card from "../components/Card";
 import $ from "jquery";
 
 function Main() {
+  const text = ["Korea", "World", "Injection"];
+
   return (
     <div className="wrap">
       <div className="Main_wrap col-lg-12">
@@ -41,15 +44,9 @@ function Main() {
           <h1>Content</h1>
           <div className="container">
             <div className="boxs">
-              <div className="card">
-                <div className="card_image"></div>
-              </div>
-              <div className="card">
-                <div className="card_image"></div>
-              </div>
-              <div className="card">
-                <div className="card_image"></div>
-              </div>
+              {text.map((item, idx) => {
+                return <Card key={idx} title={item} />;
+              })}
             </div>
           </div>
         </section>
