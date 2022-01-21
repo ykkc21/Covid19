@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Card({ title }) {
   let state = {
     moveX: 0,
@@ -22,7 +23,9 @@ function Card({ title }) {
       onMouseOut={(e) => mouseout(e)}
       id="card"
       className="card"
-    ></div>
+    >
+      <Link to={title}></Link>
+    </div>
   );
 }
 export default Card;

@@ -6,7 +6,7 @@ import Card from "../components/Card";
 import $ from "jquery";
 
 function Main() {
-  const text = ["Korea", "World", "Injection"];
+  const text = ["Korea", "World", "Vaccination"];
 
   return (
     <div className="wrap">
