@@ -9,7 +9,6 @@ function Vaccination() {
 
   const [data, SetData] = useState([]);
   const [text, setText] = useState("");
-  const [position, setPostion] = useState({});
   const onChange = (e) => setText(e.target.value);
 
   useEffect(() => {
