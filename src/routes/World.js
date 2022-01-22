@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import Country from "../components/country/Country";
+import Detaill from "../components/country/Detaill";
 import { useEffect, useState } from "react";
 function World() {
   const worldCode = [
@@ -69,13 +70,13 @@ function World() {
             return res.json();
           })
           .then((json) => {
-            SetGonfalon((data) => [...data, json.data]);
+            json.data.forEach((item) => {
+              SetGonfalon((data) => [...data, item]);
+            });
           });
       });
     },
   };
-
-  console.log(data);
 
   return (
     <div className="World_wrap">
@@ -89,25 +90,21 @@ function World() {
           <div className="Last_Box main">
             <div className="container">
               <ul>
-                {/* {data.map((item, idx) => {
+                {data.map((item, idx) => {
                   return (
                     <Country
                       key={idx}
-                      ID={item.ID}
+                      ID={idx}
                       Country={item.Country}
                       TotalConfirmed={item.TotalConfirmed}
                       TotalDeaths={item.TotalDeaths}
                     />
                   );
-                })} */}
-
-                {gonfalon.map((item, idx) => {
-                  data.map((country) => {
-                    console.log(item[0]);
-                    // console.log(country.CountryCode, item[0].country_iso_alp2);
-                  });
                 })}
               </ul>
+              <div className="Detaill">
+                <Detaill />
+              </div>
             </div>
           </div>
           <div className="earth_img_box"></div>

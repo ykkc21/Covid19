@@ -2,7 +2,9 @@ import $ from "jquery";
 import { useEffect } from "react";
 function Country({ ID, Country, TotalConfirmed, TotalDeaths, Image }) {
   const items = document.getElementsByClassName("global_Date");
-
+  const onClick = (e) => {
+    console.log(e.target);
+  };
   useEffect(() => {
     dom.init();
   }, []);
@@ -24,10 +26,15 @@ function Country({ ID, Country, TotalConfirmed, TotalDeaths, Image }) {
   };
 
   return (
-    <li id="itmes" className="global_Date">
+    <li
+      id="itmes"
+      onClick={(e) => onClick(e)}
+      country={Country}
+      confirmed={TotalConfirmed}
+      deaths={TotalDeaths}
+      className="global_Date"
+    >
       {Country}
-      <p>확진자:{TotalConfirmed.toLocaleString()}</p>
-      <p>사망자:{TotalDeaths.toLocaleString()}</p>
     </li>
   );
 }
