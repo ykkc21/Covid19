@@ -24,9 +24,9 @@ function World() {
     "AU",
     "BR",
     "HK",
-    "IT",
   ];
   const [data, SetData] = useState([]);
+  const [gonfalon, SetGonfalon] = useState([]);
   const [loading, Setloading] = useState(true);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function World() {
   const world = {
     init() {
       this.WorldDate();
-      // this.a();
+      this.GonfalonDate();
     },
     WorldDate() {
       $.ajax({
@@ -47,12 +47,12 @@ function World() {
           console.error(err);
         },
         success: function (res) {
-          const list = res.Countries; //
+          const list = res.Countries;
           for (let i = 0; i < list.length; i++) {
             const { CountryCode } = list[i];
             worldCode.forEach((code) => {
-              if (code === CountryCode) {
-                SetData((data) => [list[i], ...data]);
+              if (code == CountryCode) {
+                SetData((data) => [...data, list[i]]);
                 Setloading(false);
               }
             });
@@ -60,7 +60,22 @@ function World() {
         },
       });
     },
+    GonfalonDate() {
+      worldCode.forEach((code) => {
+        const data = fetch(
+          `http://apis.data.go.kr/1262000/CountryFlagService2/getCountryFlagList2?serviceKey=${process.env.REACT_APP_API_KEY}&pageNo=1&numOfRows=200&cond[country_iso_alp2::EQ]=${code}`
+        )
+          .then((res) => {
+            return res.json();
+          })
+          .then((json) => {
+            SetGonfalon((data) => [...data, json.data]);
+          });
+      });
+    },
   };
+
+  console.log(data);
 
   return (
     <div className="World_wrap">
@@ -74,7 +89,7 @@ function World() {
           <div className="Last_Box main">
             <div className="container">
               <ul>
-                {data.map((item, idx) => {
+                {/* {data.map((item, idx) => {
                   return (
                     <Country
                       key={idx}
@@ -84,6 +99,13 @@ function World() {
                       TotalDeaths={item.TotalDeaths}
                     />
                   );
+                })} */}
+
+                {gonfalon.map((item, idx) => {
+                  data.map((country) => {
+                    console.log(item[0]);
+                    // console.log(country.CountryCode, item[0].country_iso_alp2);
+                  });
                 })}
               </ul>
             </div>

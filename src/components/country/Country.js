@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { useEffect } from "react";
-function Country({ ID, Country, TotalConfirmed, TotalDeaths }) {
+function Country({ ID, Country, TotalConfirmed, TotalDeaths, Image }) {
   const items = document.getElementsByClassName("global_Date");
 
   useEffect(() => {
